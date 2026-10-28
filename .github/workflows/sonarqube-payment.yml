@@ -1,4 +1,3 @@
-
 name: SonarQube Payment Service Analysis
 
 on:
@@ -39,6 +38,22 @@ jobs:
         working-directory: payment-service
         run: npm ci
 
+      # TEMPORARY: remove this step once the SonarQube scan passes.
+      # It never prints the token, only whether it is set and valid.
+      - name: Debug Sonar connection
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        run: |
+          [ -n "$SONAR_TOKEN" ] && echo "token: set" || echo "token: MISSING"
+          [ -n "$SONAR_HOST_URL" ] && echo "host: set" || echo "host: MISSING"
+          echo "Token valid?"
+          curl -s -u "$SONAR_TOKEN:" "$SONAR_HOST_URL/api/authentication/validate" || true
+          echo
+          echo "Project visible?"
+          curl -s -u "$SONAR_TOKEN:" "$SONAR_HOST_URL/api/projects/search?projects=payment-service" || true
+          echo
+
       - name: Analyze with SonarQube
         uses: SonarSource/sonarqube-scan-action@v5
         env:
@@ -51,4 +66,3 @@ jobs:
             -Dsonar.projectName="Payment Service"
             -Dsonar.sources=.
             -Dsonar.exclusions=node_modules/**,coverage/**
-
