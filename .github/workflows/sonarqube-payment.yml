@@ -62,7 +62,7 @@ jobs:
         with:
           projectBaseDir: payment-service
           args: >
-            -Dsonar.projectKey=payment-service
-            -Dsonar.projectName="Payment Service"
+            -Dsonar.projectKey=Payment-Service
+            -Dsonar.projectName=Payment-Service
             -Dsonar.sources=.
             -Dsonar.exclusions=node_modules/**,coverage/**
