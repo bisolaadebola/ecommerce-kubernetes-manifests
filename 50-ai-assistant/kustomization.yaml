@@ -7,7 +7,7 @@ commonAnnotations:
   argocd.argoproj.io/sync-wave: "5"
 
 # AI assistant: chatbot (chat UI) -> agent (LLM) -> mcp (shop tools).
-# Reached through the shop: https://shop.digitalwitch.online/chatbot/
+# Reached through the shop: https://shop.bfithub.store/chatbot/
 resources:
   - chatbot.yaml
   - agent.yaml
@@ -25,9 +25,9 @@ configMapGenerator:
 
 # Image tags - updated automatically by the ecommerce-final-project pipeline
 images:
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/agent
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/agent
     newTag: "16"
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/chatbot
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/chatbot
     newTag: "17"
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/mcp
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/mcp
     newTag: "10"

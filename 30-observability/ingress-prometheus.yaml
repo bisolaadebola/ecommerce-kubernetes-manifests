@@ -1,4 +1,4 @@
-# https://prometheus.digitalwitch.online -> prometheus (protected by NGINX basic auth, Secret "basic-auth")
+# https://prometheus.bfithub.store -> prometheus (protected by NGINX basic auth, Secret "basic-auth")
 #
 # F5 NGINX mergeable Ingresses:
 #   master = host + TLS certificate (issuer letsencrypt-prod-mergeable)
@@ -22,10 +22,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - prometheus.digitalwitch.online
+        - prometheus.bfithub.store
       secretName: prometheus-tls
   rules:
-    - host: prometheus.digitalwitch.online
+    - host: prometheus.bfithub.store
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -39,7 +39,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: prometheus.digitalwitch.online
+    - host: prometheus.bfithub.store
       http:
         paths:
           - path: /

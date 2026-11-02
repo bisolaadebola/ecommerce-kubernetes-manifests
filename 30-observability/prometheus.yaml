@@ -1,4 +1,4 @@
-# Prometheus - metrics at https://prometheus.digitalwitch.online
+# Prometheus - metrics at https://prometheus.bfithub.store (protected by NGINX basic auth, Secret "basic-auth")
 # (protected by NGINX basic auth). Receives metrics from the collector over
 # OTLP (--web.enable-otlp-receiver); keeps 7 days of data on a gp3 volume.
 apiVersion: v1
@@ -50,7 +50,7 @@ spec:
             - --web.console.libraries=/etc/prometheus/console_libraries
             - --web.enable-lifecycle
             - --web.route-prefix=/
-            - --web.external-url=https://prometheus.digitalwitch.online/
+            - --web.external-url=https://prometheus.bfithub.store/
             - --web.enable-otlp-receiver
             - --enable-feature=exemplar-storage
           ports:

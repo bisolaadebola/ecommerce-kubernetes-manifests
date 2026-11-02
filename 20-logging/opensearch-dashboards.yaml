@@ -1,4 +1,4 @@
-# OpenSearch Dashboards - logging UI at https://logs.digitalwitch.online
+# OpenSearch Dashboards - logging UI at https://logs.bfithub.store
 # (protected by NGINX basic auth). In Discover, create an index pattern
 # "otel-logs-*" with time field "observedTimestamp".
 apiVersion: v1

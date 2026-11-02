@@ -9,12 +9,12 @@ commonAnnotations:
 resources:
   - opensearch.yaml
   - opensearch-dashboards.yaml
-  - ingress-logs.yaml # https://logs.digitalwitch.online (basic auth)
+  - ingress-logs.yaml # https://logs.bfithub.store (basic auth)
 
-# Secret "basic-auth" (for logs.digitalwitch.online) is NOT stored in Git -
+# Secret "basic-auth" (for logs.bfithub.store) is NOT stored in Git -
 # create it with create-secrets.sh.
 
 # Image tags - updated automatically by the ecommerce-final-project pipeline
 images:
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/opensearch
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/opensearch
     newTag: "10"

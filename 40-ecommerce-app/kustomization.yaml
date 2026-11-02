@@ -26,7 +26,7 @@ resources:
   - frontend-proxy.yaml
   - telemetry-docs.yaml
   - load-generator.yaml
-  # Public URL: https://shop.digitalwitch.online
+  # Public URL: https://shop.bfithub.store (frontend-proxy Envoy) and https://admin.bfithub.store (frontend-proxy Envoy)
   - ingress-shop.yaml
 
 configMapGenerator:
@@ -42,39 +42,39 @@ configMapGenerator:
 
 # Image tags - updated automatically by the ecommerce-final-project pipeline
 images:
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/accounting
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/accounting
     newTag: "10"
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/ad
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/ad
     newTag: "10"
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/cart
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/cart
     newTag: "10"
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/checkout
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/checkout
     newTag: "10"
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/currency
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/currency
     newTag: "10"
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/email
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/email
     newTag: "10"
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/flagd-ui
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/flagd-ui
     newTag: "11"
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/fraud-detection
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/fraud-detection
     newTag: "10"
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/frontend
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/frontend
     newTag: "15"
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/frontend-proxy
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/frontend-proxy
     newTag: "10"
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/image-provider
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/image-provider
     newTag: "15"
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/load-generator
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/load-generator
     newTag: "10"
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/payment
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/payment
     newTag: "10"
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/product-catalog
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/product-catalog
     newTag: "10"
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/quote
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/quote
     newTag: "10"
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/recommendation
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/recommendation
     newTag: "10"
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/shipping
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/shipping
     newTag: "10"
-  - name: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/telemetry-docs
+  - name: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/telemetry-docs
     newTag: "10"

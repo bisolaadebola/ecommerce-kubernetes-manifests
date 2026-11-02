@@ -1,5 +1,5 @@
 # AI assistant - chatbot (Python): the chat UI at
-# https://shop.digitalwitch.online/chatbot/ (routed by frontend-proxy).
+# https://shop.bfithub.store/chatbot/ (routed by frontend-proxy).
 # Sends each question to the agent.
 apiVersion: v1
 kind: Service
@@ -36,7 +36,7 @@ spec:
       enableServiceLinks: false
       containers:
         - name: chatbot
-          image: 060647991200.dkr.ecr.us-east-2.amazonaws.com/ecomerce/chatbot:latest
+          image: 619758066399.dkr.ecr.us-east-1.amazonaws.com/ecomerce/chatbot:latest
           ports:
             - name: http
               containerPort: 7860

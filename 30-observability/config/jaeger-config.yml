@@ -1,6 +1,6 @@
 # Jaeger v2 configuration (from src/jaeger/config.yml).
 # Changed for Kubernetes: UI served at "/" on its own hostname
-# (https://jaeger.digitalwitch.online) instead of under /jaeger/ui.
+# (https://jaeger.bfithub.store) instead of under /jaeger/ui.
 service:
   extensions: [jaeger_storage, jaeger_query, healthcheckv2]
   pipelines:

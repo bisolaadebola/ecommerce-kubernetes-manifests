@@ -1,4 +1,4 @@
-# https://logs.digitalwitch.online -> opensearch-dashboards (protected by NGINX basic auth, Secret "basic-auth")
+# https://logs.bfithub.store -> opensearch-dashboards (protected by NGINX basic auth, Secret "basic-auth")
 #
 # F5 NGINX mergeable Ingresses:
 #   master = host + TLS certificate (issuer letsencrypt-prod-mergeable)
@@ -22,10 +22,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - logs.digitalwitch.online
+        - logs.bfithub.store
       secretName: logs-tls
   rules:
-    - host: logs.digitalwitch.online
+    - host: logs.bfithub.store
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -39,7 +39,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: logs.digitalwitch.online
+    - host: logs.bfithub.store
       http:
         paths:
           - path: /

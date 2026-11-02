@@ -1,4 +1,4 @@
-# https://grafana.digitalwitch.online -> Grafana (Grafana's own login)
+# https://grafana.bfithub.store -> Grafana (Grafana's own login)
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -15,10 +15,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - grafana.digitalwitch.online
+        - grafana.bfithub.store
       secretName: grafana-tls
   rules:
-    - host: grafana.digitalwitch.online
+    - host: grafana.bfithub.store
       http:
         paths:
           - path: /

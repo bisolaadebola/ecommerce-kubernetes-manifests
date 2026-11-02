@@ -12,7 +12,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/digitalwitchdemo/k8s-file.git
+    repoURL: https://github.com/bisolaadebola/ecommerce-kubernetes-manifests.git
     targetRevision: main
     path: 30-observability
   destination:

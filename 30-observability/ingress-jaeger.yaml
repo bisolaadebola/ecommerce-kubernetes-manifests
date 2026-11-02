@@ -15,10 +15,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - jaeger.digitalwitch.online
+        - jaeger.bfithub.store
       secretName: jaeger-tls
   rules:
-    - host: jaeger.digitalwitch.online
+    - host: jaeger.bfithub.store
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -32,7 +32,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: jaeger.digitalwitch.online
+    - host: jaeger.bfithub.store
       http:
         paths:
           - path: /

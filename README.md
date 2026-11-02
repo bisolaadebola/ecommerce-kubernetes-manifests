@@ -22,11 +22,11 @@ Argo CD with Kustomize.
 
 | URL | Service | Login |
 |---|---|---|
-| https://shop.digitalwitch.online | Shop (flags at `/feature`, Locust at `/loadgen/`, AI chat at `/chatbot/`) | public |
-| https://grafana.digitalwitch.online | Grafana | Grafana admin (`grafana-admin` Secret) |
-| https://jaeger.digitalwitch.online | Jaeger | basic auth |
-| https://prometheus.digitalwitch.online | Prometheus | basic auth |
-| https://logs.digitalwitch.online | OpenSearch Dashboards | basic auth |
+| https://shop.bfithub.store | Shop (flags at `/feature`, Locust at `/loadgen/`, AI chat at `/chatbot/`) | public |
+| https://grafana.bfithub.store | Grafana | Grafana admin (`grafana-admin` Secret) |
+| https://jaeger.bfithub.store | Jaeger | basic auth |
+| https://prometheus.bfithub.store | Prometheus | basic auth |
+| https://logs.bfithub.store | OpenSearch Dashboards | basic auth |
 
 ## Prerequisites (EKS Terraform project)
 
