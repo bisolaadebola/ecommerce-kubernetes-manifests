@@ -4,6 +4,17 @@ Kubernetes manifests for running the ecommerce-final-project microservices on th
 Final-Project EKS cluster (`aws-network-and-eks-deployment`), deployed by
 Argo CD with Kustomize.
 
+## Deployment highlights
+
+This 24-microservice platform is deployed from Git through Argo CD. The [ECR image build and manifest-update workflow](https://github.com/bisolaadebola/ecommerce-devsecops-platform#phase-3-ecr-image-build-and-manifest-update) builds and publishes images; this repository supplies the Kubernetes desired state.
+
+![Argo CD applications synced and healthy](screenshots/01-argocd-apps-synced-healthy.png)
+
+![Astronomy Shop homepage](screenshots/02-shop-homepage.png)
+
+![Real service metrics in Grafana](screenshots/05-grafana-spanmetrics-real-service-metrics.png)
+
+
 ## Layout
 
 | Folder | Namespace | Contents | Argo CD app (wave) |
@@ -79,3 +90,44 @@ when the originals change:
 
 Adapted (not plain copies): `otelcol-config.yml`, `jaeger-config.yml`,
 `grafana.ini`, `datasources.yaml`, `app.env`.
+
+
+## Phase 3: Application Deployment with Argo CD
+
+**DevOps Engineer:** BisolaAdebola
+
+In Phase 3, I deployed the Astronomy Shop platform's 24 microservices to the Amazon EKS cluster provisioned in Phase 2. This repository is the GitOps source of truth: it holds the Kubernetes manifests, and Argo CD continuously reconciles the cluster to the desired state in Git.
+
+### Image build and deployment flow
+
+The [24-image ECR build and manifest-update workflow](https://github.com/bisolaadebola/ecommerce-devsecops-platform#phase-3-ecr-image-build-and-manifest-update) in the DevSecOps repository builds and pushes the service images to Amazon ECR, then commits their updated tags to this repository. Argo CD detects those manifest changes and deploys the updated workloads to EKS.
+
+### Argo CD app-of-apps layout
+
+The parent Argo CD application, `astronomy-shop`, manages six layer applications. Sync waves apply the layers in dependency order:
+
+1. `astronomy-base` (wave -1) — namespaces, storage class, and cluster-wide configuration
+2. `astronomy-data` (wave 1) — PostgreSQL, Valkey, and Kafka
+3. `astronomy-logging` (wave 2) — OpenSearch and OpenSearch Dashboards
+4. `astronomy-observability` (wave 3) — OpenTelemetry Collector, Jaeger, Prometheus, Grafana, and OpAMP
+5. `astronomy-app` (wave 4) — the ecommerce shop services
+6. `astronomy-ai` (wave 5) — chatbot, agent, and MCP services
+
+The parent application is defined in `argocd/root-app.yaml`; the child applications are in `argocd/apps/`. The parent uses automated sync with pruning and self-healing enabled.
+
+### Verification and observability
+
+I verified the deployment in Argo CD and through the running services. The screenshots below show the synced and healthy applications, the shop and AI assistant, and project telemetry in Grafana, Jaeger, and OpenSearch Dashboards.
+
+
+![Astronomy Shop AI assistant](screenshots/04-ai-chatbot-working.png)
+
+![Chatbot distributed traces in Jaeger](screenshots/06-jaeger-chatbot-traces.png)
+
+![Application logs in OpenSearch Dashboards](screenshots/12-opensearch-application-logs.png)
+### Repositories for the three project phases
+
+- Phase 1 — Infrastructure scanning and SonarQube server: [`sonarqube-aws-ec2`](https://github.com/bisolaadebola/sonarqube-aws-ec2)
+- Phase 2 — AWS infrastructure deployment: [`ecommerce-eks-terraform-infrastructure`](https://github.com/bisolaadebola/ecommerce-eks-terraform-infrastructure)
+- Phase 3 — Image pipeline: [`ecommerce-devsecops-platform`](https://github.com/bisolaadebola/ecommerce-devsecops-platform)
+- Phase 3 — Kubernetes GitOps deployment: [`ecommerce-kubernetes-manifests`](https://github.com/bisolaadebola/ecommerce-kubernetes-manifests)
